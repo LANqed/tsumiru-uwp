@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隱私權政策 - Tsumiru UWP</title>
+    <meta name="description" content="Official Privacy Policy for Tsumiru UWP (Mikan Network), strictly compliant with Microsoft Store Policy 10.5.1 and Google Material Design 2 standards.">
+    <!-- Material Design 2 常用字體與 Google Material Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* 水青色加白色主題 (Light Theme - Google Material Design 2) */
+        :root {
+            --mdc-theme-primary: #00838f;        /* 深水青色 (MD2 Teal 800) */
+            --mdc-theme-primary-variant: #005662;
+            --mdc-theme-on-primary: #ffffff;
+            --mdc-theme-background: #f0f7f7;     /* 淡淡的水青灰白背景 */
+            --mdc-theme-surface: #ffffff;
+            --mdc-theme-on-surface: #202124;
+            --mdc-theme-text-secondary: #5f6368;
+            --mdc-theme-border: #b2dfdb;         /* 水青淺邊框 */
+            --mdc-theme-accent: #00acc1;         /* MD2 Teal 600 */
+            --mdc-theme-chip-bg: rgba(0, 131, 143, 0.08);
+            --mdc-theme-callout-bg: rgba(0, 131, 143, 0.05);
+
+            /* MD2 Elevation 陰影規範 */
+            --elevation-header: 0 2px 4px -1px rgba(0,0,0,0.2), 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12);
+            --elevation-card: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+            --elevation-card-hover: 0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08);
+            --elevation-dropdown: 0 5px 5px -3px rgba(0,0,0,0.2), 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12);
+        }
+
+        /* 黑夜模式 (Dark Theme - MD2 官方暗黑規範) */
+        [data-theme="dark"] {
+            --mdc-theme-primary: #00acc1;        /* 亮水青色 (MD2 Teal 200/400 防眩光) */
+            --mdc-theme-primary-variant: #26c6da;
+            --mdc-theme-on-primary: #002022;
+            --mdc-theme-background: #121212;     /* 經典 MD2 黑夜背景 */
+            --mdc-theme-surface: #1e1e1e;        /* 卡片深灰面 */
+            --mdc-theme-on-surface: #e3e3e3;
+            --mdc-theme-text-secondary: #9aa0a6;
+            --mdc-theme-border: #2c3e40;         /* 暗水青邊框 */
+            --mdc-theme-accent: #00e5ff;
+            --mdc-theme-chip-bg: rgba(0, 229, 255, 0.12);
+            --mdc-theme-callout-bg: rgba(0, 172, 193, 0.08);
+
+            --elevation-header: 0 2px 4px -1px rgba(0,0,0,0.6), 0 4px 5px 0 rgba(0,0,0,0.45), 0 1px 10px 0 rgba(0,0,0,0.35);
+            --elevation-card: 0 1px 3px 0 rgba(0,0,0,0.4), 0 1px 2px 0 rgba(0,0,0,0.3);
+            --elevation-card-hover: 0 4px 8px 0 rgba(0,0,0,0.6), 0 2px 4px 0 rgba(0,0,0,0.45);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', 'Noto Sans TC', 'Noto Sans SC', sans-serif;
+            background-color: var(--mdc-theme-background);
+            color: var(--mdc-theme-on-surface);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            transition: background-color 0.25s ease, color 0.25s ease;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Material Top App Bar */
+        header {
+            background-color: var(--mdc-theme-primary);
+            color: var(--mdc-theme-on-primary);
+            padding: 16px 24px;
+            box-shadow: var(--elevation-header);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        .header-container {
+            max-width: 840px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title-group {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .header-icon {
+            font-size: 32px;
+            color: var(--mdc-theme-on-primary);
+        }
+
+        .header-title h1 {
+            margin: 0 0 2px 0;
+            font-size: 22px;
+            font-weight: 500;
+            letter-spacing: 0.15px;
+        }
+
+        .header-title p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 13px;
+            letter-spacing: 0.2px;
+        }
+
+        /* 右上角按鈕群組 */
+        .header-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Material Icon Button */
+        .icon-btn {
+            background: transparent;
+            border: none;
+            color: var(--mdc-theme-on-primary);
+            cursor: pointer;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .icon-btn:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .icon-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* 下拉選單樣式 (Material Menu) */
+        .dropdown-menu {
+            position: absolute;
+            top: 52px;
+            right: 0;
+            background-color: var(--mdc-theme-surface);
+            color: var(--mdc-theme-on-surface);
+            border-radius: 4px;
+            box-shadow: var(--elevation-dropdown);
+            width: 170px;
+            display: none;
+            z-index: 1000;
+            border: 1px solid var(--mdc-theme-border);
+            overflow: hidden;
+            animation: fadeIn 0.15s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+        .dropdown-item {
+            padding: 12px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.2s;
+            font-weight: 500;
+        }
+
+        .dropdown-item .material-icons {
+            font-size: 18px;
+            color: var(--mdc-theme-accent);
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--mdc-theme-chip-bg);
+        }
+
+        .dropdown-item.active {
+            background-color: var(--mdc-theme-chip-bg);
+            color: var(--mdc-theme-primary);
+        }
+
+        /* Material Card Container */
+        main {
+            max-width: 840px;
+            margin: 28px auto 48px auto;
+            padding: 0 16px;
+        }
+
+        .card {
+            background-color: var(--mdc-theme-surface);
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: var(--elevation-card);
+            margin-bottom: 24px;
+            border: 1px solid var(--mdc-theme-border);
+            transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .card:hover {
+            box-shadow: var(--elevation-card-hover);
+        }
+
+        /* MD2 Chips Group */
+        .chips-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 18px 0 24px 0;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 16px;
+            font-size: 12.5px;
+            font-weight: 500;
+            background-color: var(--mdc-theme-chip-bg);
+            color: var(--mdc-theme-primary);
+            border: 1px solid var(--mdc-theme-border);
+            letter-spacing: 0.2px;
+        }
+
+        .chip .material-icons {
+            font-size: 16px;
+        }
+
+        h2 {
+            color: var(--mdc-theme-primary);
+            font-size: 20px;
+            font-weight: 500;
+            margin-top: 32px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid var(--mdc-theme-accent);
+            padding-bottom: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 0.15px;
+        }
+
+        h2:first-of-type {
+            margin-top: 16px;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: var(--mdc-theme-on-surface);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        p, li {
+            color: var(--mdc-theme-on-surface);
+            font-size: 15px;
+            line-height: 1.65;
+        }
+
+        ul {
+            padding-left: 22px;
+            margin-top: 8px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 審查亮點提示框 (Material Callout) */
+        .callout-box {
+            margin: 16px 0;
+            padding: 16px 20px;
+            border-radius: 4px;
+            background-color: var(--mdc-theme-callout-bg);
+            border-left: 4px solid var(--mdc-theme-primary);
+            font-size: 14px;
+        }
+
+        .callout-box strong {
+            color: var(--mdc-theme-primary);
+        }
+
+        .lang-section {
+            margin-bottom: 0;
+            display: none;
+        }
+
+        .lang-section.active {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--mdc-theme-text-secondary);
+            font-size: 13px;
+            margin-bottom: 48px;
+            padding: 0 16px;
+        }
+
+        footer a {
+            color: var(--mdc-theme-primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            header { padding: 14px 16px; }
+            .card { padding: 20px; }
+            .header-title h1 { font-size: 19px; }
+            .header-icon { font-size: 26px; }
+            main { margin-top: 18px; }
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <!-- Material Top App Bar -->
+    <header>
+        <div class="header-container">
+            <div class="header-title-group">
+                <span class="material-icons header-icon">menu_book</span>
+                <div class="header-title">
+                    <h1 id="page-title">Tsumiru UWP 隱私權政策</h1>
+                    <p id="page-subtitle">Mikan Network &bull; 最後更新日期：2026-10-19</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <!-- 黑夜模式切換按鈕 -->
+                <button class="icon-btn" onclick="toggleTheme()" title="切換黑夜模式 / Toggle Dark Mode" aria-label="Toggle Theme">
+                    <span id="theme-icon" class="material-icons">dark_mode</span>
+                </button>
+                
+                <!-- 語言選單按鈕 -->
+                <div style="position: relative;">
+                    <button id="lang-menu-btn" class="icon-btn" title="選擇語言 / Select Language" aria-label="Select Language">
+                        <span class="material-icons">translate</span>
+                    </button>
+                    <!-- 下拉選單 -->
+                    <div id="lang-dropdown" class="dropdown-menu">
+                        <div class="dropdown-item" id="item-zh-TW" onclick="switchLanguage('zh-TW')">
+                            <span class="material-icons">check</span> 繁體中文
+                        </div>
+                        <div class="dropdown-item" id="item-zh-CN" onclick="switchLanguage('zh-CN')">
+                            <span class="material-icons">check</span> 简体中文
+                        </div>
+                        <div class="dropdown-item" id="item-en" onclick="switchLanguage('en')">
+                            <span class="material-icons">check</span> English
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ====================================================================
+             繁體中文版 (Traditional Chinese)
+             ==================================================================== -->
+        <div id="section-zh-TW" class="card lang-section">
+            <div style="margin-bottom: 12px; font-size: 13px; color: var(--mdc-theme-accent); font-weight: 500; letter-spacing: 1px;">繁體中文 / TRADITIONAL CHINESE</div>
+            
+            <!-- MD2 權限聲明標籤組 -->
+            <div class="chips-container">
+                <div class="chip"><span class="material-icons">offline_pin</span> 本地沙盒儲存</div>
+                <div class="chip"><span class="material-icons">folder_special</span> Documents: 離線快取與備份</div>
+                <div class="chip"><span class="material-icons">router</span> IP Address: 點對點直連無中轉</div>
+                <div class="chip"><span class="material-icons">block</span> 零廣告 &bull; 零第三方追蹤</div>
+            </div>
+
+            <h2><span class="material-icons">info</span> 1. 總則</h2>
+            <p>歡迎使用由 <strong>Mikan Network</strong>（以下簡稱「我們」）開發的 <strong>Tsumiru UWP</strong>（包識別碼：<code>MikanNetwork.TsumiruUWP</code>，以下簡稱「本應用程式」）。本應用程式是一款面向 Suwayomi Server 的自由開源 Windows 客戶端。</p>
+            <p>我們極度重視您的隱私權。本政策完全依循<strong>微軟應用程式商店認證規範（Microsoft Store Policy 10.5.1 個人資訊與隱私權政策）</strong>撰寫，公開且透明地說明本應用程式存取、處理及保護您的個人資訊之方式。</p>
+
+            <h2><span class="material-icons">security</span> 2. 我們存取與處理的資訊（微軟審查重點項目說明）</h2>
+            <p>為了實現漫畫離線瀏覽與自建伺服器連線功能，本應用程式在 Windows 10 / 11 系統上需要使用以下權限與資訊：</p>
+            
+            <h3><span class="material-icons" style="font-size: 18px; color: var(--mdc-theme-accent);">folder</span> 裝置上的文件、資料夾與檔案 (Documents / Device Folders and Files)</h3>
+            <ul>
+                <li><strong>離線漫畫快取與下載：</strong> 當您主動下載或線上閱讀漫畫時，章節圖片與封面快取僅儲存於本應用程式私有的 UWP 隔離沙盒目錄（<code>ApplicationData.Current.LocalFolder</code> 與 <code>LocalCacheFolder</code>），讓您可在無網路時順暢閱讀。</li>
+                <li><strong>閱讀進度與書籤：</strong> 您的漫畫歷史閱讀進度、書籤與自訂偏好以本機輕量設定（JSON）儲存於設備端。</li>
+                <li><strong>備份與還原檔案（FilePicker）：</strong> 僅當您主動觸發「匯出備份」或「還原備份」時，本應用程式才會呼叫系統原生檔案選取器（FilePicker）讀取或寫入您指定之單一備份檔案。</li>
+            </ul>
+            <div class="callout-box">
+                <strong>零越界保證：</strong> 本應用程式<strong>絕不</strong>掃描、讀取或收集您裝置中的「我的文件」、「圖片」、「下載」等公共非關聯目錄，所有檔案<strong>絕不</strong>上傳至開發者伺服器或任何第三方。
+            </div>
+
+            <h3><span class="material-icons" style="font-size: 18px; color: var(--mdc-theme-accent);">language</span> 網路連線與 IP 位址 (IP Address & Network Access)</h3>
+            <ul>
+                <li><strong>直連您的 Suwayomi 伺服器：</strong> 當本應用程式發起網路連線時，僅向<strong>您親自配置的 Suwayomi 伺服器網址</strong>（例如家庭區域網路 IP <code>http://192.168.x.x:4567</code> 或您的私有網域）直接發送標準 HTTP/WebSocket 請求。傳輸過程中底層 TCP/IP 協定會自然傳送您的設備 IP 位址。</li>
+                <li><strong>區域網路權限 (Private Network)：</strong> 清單宣告之 <code>privateNetworkClientServer</code> 專為允許 Windows 10 Mobile 裝置與桌面 PC 連線至家庭 Wi-Fi 內的自建伺服器。</li>
+                <li><strong>圖源圖片直連：</strong> 漫畫章節圖片與擴充套件僅在您的設備與目標圖源伺服器之間進行標準資料傳輸。</li>
+            </ul>
+            <div class="callout-box">
+                <strong>零中繼伺服器宣告：</strong> 開發者（Mikan Network）<strong>沒有建立任何代理、中繼或流量記錄伺服器</strong>。您的網路流量從不經過開發者端，我們<strong>不記錄、不收集、不分析您的 IP 位址</strong>或閱讀瀏覽行為。
+            </div>
+
+            <h3><span class="material-icons" style="font-size: 18px; color: var(--mdc-theme-accent);">vpn_key</span> 伺服器登入憑證 (Credentials)</h3>
+            <ul>
+                <li>若您的 Suwayomi 伺服器啟用了帳號密碼或 JWT 權杖，該憑證僅保存在您本機的受保護密碼庫中，僅在與您自己的伺服器通訊時隨標頭發出，絕不外流。</li>
+            </ul>
+
+            <h2><span class="material-icons">block</span> 3. 零廣告與零第三方追蹤披露</h2>
+            <p>本應用程式堅守開源純淨原則：</p>
+            <ul>
+                <li><strong>無商業廣告：</strong> 不包含任何橫幅廣告、開屏廣告或廣告聯盟 SDK。</li>
+                <li><strong>無第三方統計 SDK：</strong> 不包含 Google Analytics、Firebase、友盟等任何使用者行為追蹤代碼。</li>
+                <li><strong>本機偵錯記錄：</strong> 應用程式錯誤記錄僅存放於本機快取供使用者自我排錯，絕不自動回傳。</li>
+            </ul>
+
+            <h2><span class="material-icons">manage_accounts</span> 4. 使用者控制權與資料抹除</h2>
+            <p>您對儲存在本機的資料擁有完全支配權：</p>
+            <ul>
+                <li><strong>清除快取：</strong> 隨時可在應用程式設定中一鍵清空漫畫離線快取與暫存圖檔。</li>
+                <li><strong>登出伺服器：</strong> 於連線頁面點擊登出即可徹底抹除本機儲存的伺服器金鑰與連線記錄。</li>
+                <li><strong>徹底移除：</strong> 於 Windows「設定 &rarr; 應用程式」中解除安裝本應用程式，系統將自動物理抹除本應用程式沙盒中的全部資料。</li>
+            </ul>
+
+            <h2><span class="material-icons">verified</span> 5. 微軟應用商店合規宣告</h2>
+            <p>本文件作為符合<strong>微軟市集政策 10.5.1</strong> 之正式隱私權公開文件。本應用程式絕不出售、交易或轉讓任何個人資料予第三方。</p>
+
+            <h2><span class="material-icons">contact_support</span> 6. 聯絡我們與技術支援</h2>
+            <p>如果您對本隱私權政策或資料保護有任何疑問，歡迎透過開源社群或信箱與我們聯繫：<br>
+            <strong>開發團隊：</strong> Mikan Network<br>
+            <strong>開源社群與回報：</strong> <a href="https://github.com/Suwayomi/Suwayomi-Server" target="_blank" rel="noopener">Suwayomi Community / GitHub Issues</a><br>
+            <strong>聯絡信箱：</strong> <code>mikan.network.uwp@outlook.com</code></p>
+        </div>
+
+        <!-- ====================================================================
+             简体中文版 (Simplified Chinese)
+             ==================================================================== -->
+        <div id="section-zh-CN" class="card lang-section">
+            <div style="margin-bottom: 12px; font-size: 13px; color: var(--mdc-theme-accent); font-weight: 500; letter-spacing: 1px;">简体中文 / SIMPLIFIED CHINESE</div>
+            
+            <!-- MD2 权限声明标签组 -->
+            <div class="chips-container">
+                <div class="chip"><span class="material-icons">offline_pin</span> 本地沙盒存储</div>
+                <div class="chip"><span class="material-icons">folder_special</span> Documents: 离线缓存与备份</div>
+                <div class="chip"><span class="material-icons">router</span> IP Address: 点对点直连无中转</div>
+                <div class="chip"><span class="material-icons">block</span> 零广告 &bull; 零第三方追踪</div>
+            </div>
+
+            <h2><span class="material-icons">info</span> 1. 总则</h2>
+            <p>欢迎使用由 <strong>Mikan Network</strong>（以下简称“我们”）开发的 <strong>Tsumiru UWP</strong>（包标识符：<code>MikanNetwork.TsumiruUWP</code>，以下简称“本应用程序”）。本应用程序是一款面向 Suwayomi Server 的自由开源 Windows 客户端。</p>
+            <p>我们极度重视您的隐私权。本政策完全遵循<strong>微软应用商店认证规范（Microsoft Store Policy 10.5.1 个人信息与隐私权政策）</strong>编写，公开且透明地说明本应用程序访问、处理及保护您的个人信息之方式。</p>
+
+            <h2><span class="material-icons">security</span> 2. 我们访问与处理的信息（微软审查重点项目说明）</h2>
+            <p>为了实现漫画离线浏览与自建服务器通信功能，本应用程序在 Windows 10 / 11 系统上需要使用以下权限与信息：</p>
+            
+            <h3><span class="material-icons" style="font-size: 18px; color: var(--mdc-theme-accent);">folder</span> 设备上的文件、文件夹与文件 (Documents / Device Folders and Files)</h3>
+            <ul>
+                <li><strong>离线漫画缓存与下载：</strong> 当您主动下载或在线阅读漫画时，章节图片与封面缓存仅保存在本应用程序私有的 UWP 隔离沙盒目录（<code>ApplicationData.Current.LocalFolder</code> 与 <code>LocalCacheFolder</code>），让您可在无网络时顺畅阅读。</li>
+                <li><strong>阅读进度与书签：</strong> 您的漫画历史阅读进度、书签与自定义偏好以本机轻量配置（JSON）保存在设备端。</li>
+                <li><strong>备份与还原文件（FilePicker）：</strong> 仅当您主动触发“导出备份”或“还原备份”时，本应用程序才会调用系统原生文件选取器（FilePicker）读写您指定之单一备份文件。</li>
+            </ul>
+            <div class="callout-box">
+                <strong>零越界保证：</strong> 本应用程序<strong>绝不</strong>扫描、读取或收集您设备中的“我的文档”、“图片”、“下载”等公共非关联目录，所有文件<strong>绝不</strong>上传至开发者服务器或任何第三方。
+            </div>
+
+            <h3><span class="material-icons" style="font-size: 18px; color: var(--mdc-theme-accent);">language</span> 网络连接与 IP 地址 (IP Address & Network Access)</h3>
+            <ul>
+                <li><strong>直连您的 Suwayomi 服务器：</strong> 当本应用程序发起网络连接时，仅向<strong>您亲自配置的 Suwayomi 服务器地址</strong>（例如家庭局域网 IP <code>http://192.168.x.x:4567</code> 或您的私有域名）直接发送标准 HTTP/WebSocket 请求。传输过程中底层 TCP/IP 协议会自然发送您的设备 IP 地址。</li>
+                <li><strong>局域网权限 (Private Network)：</strong> 清单声明之 <code>privateNetworkClientServer</code> 专为允许 Windows 10 Mobile 设备与桌面 PC 连接至家庭 Wi-Fi 内的自建服务器。</li>
+                <li><strong>图源图片直连：</strong> 漫画章节图片与扩展插件仅在您的设备与目标图源服务器之间进行标准数据传输。</li>
+            </ul>
+            <div class="callout-box">
+                <strong>零中继服务器声明：</strong> 开发者（Mikan Network）<strong>没有建立任何代理、中继或流量记录服务器</strong>。您的网络流量从不经过开发者端，我们<strong>不记录、不收集、不分析您的 IP 地址</strong>或阅读浏览行为。
+            </div>
+
+            <h3><span class="material-icons" style="font-size: 18px; color: var(--mdc-theme-accent);">vpn_key</span> 服务器登录凭证 (Credentials)</h3>
+            <ul>
+                <li>若您的 Suwayomi 服务器启用了账号密码或 JWT 令牌，该凭据仅保存在您本机的受保护密码库中，仅在与您自己的服务器通信时随标头发出，绝不外流。</li>
+            </ul>
+
+            <h2><span class="material-icons">block</span> 3. 零广告与零第三方追踪披露</h2>
+            <p>本应用程序坚守开源纯净原则：</p>
+            <ul>
+                <li><strong>无商业广告：</strong> 不包含任何横幅广告、开屏广告或广告联盟 SDK。</li>
+                <li><strong>无第三方统计 SDK：</strong> 不包含 Google Analytics、Firebase、友盟等任何用户行为追踪代码。</li>
+                <li><strong>本机调试日志：</strong> 应用程序错误日志仅存放于本机缓存供用户自行排错，绝不自动回传。</li>
+            </ul>
+
+            <h2><span class="material-icons">manage_accounts</span> 4. 用户控制权与数据抹除</h2>
+            <p>您对保存在本机的数据拥有完全支配权：</p>
+            <ul>
+                <li><strong>清除缓存：</strong> 随时可在应用程序设置中一键清空漫画离线缓存与临时图档。</li>
+                <li><strong>登出服务器：</strong> 于连接页面点击登出即可彻底抹除本机保存的服务器密钥与连接记录。</li>
+                <li><strong>彻底移除：</strong> 于 Windows“设置 &rarr; 应用”中卸载本应用程序，系统将自动物理抹除本应用程序沙盒中的全部数据。</li>
+            </ul>
+
+            <h2><span class="material-icons">verified</span> 5. 微软应用商店合规声明</h2>
+            <p>本文件作为符合<strong>微软商店政策 10.5.1</strong> 之正式隐私权公开文件。本应用程序绝不出售、交易或转让任何个人数据予第三方。</p>
+
+            <h2><span class="material-icons">contact_support</span> 6. 联系我们与技术支持</h2>
+            <p>如果您对本隐私权政策或数据保护有任何疑问，欢迎通过开源社区或邮箱与我们联系：<br>
+            <strong>开发团队：</strong> Mikan Network<br>
+            <strong>开源社区与反馈：</strong> <a href="https://github.com/Suwayomi/Suwayomi-Server" target="_blank" rel="noopener">Suwayomi Community / GitHub Issues</a><br>
+            <strong>联系邮箱：</strong> <code>mikan.network.uwp@outlook.com</code></p>
+        </div>
+
+        <!-- ====================================================================
+             英文版 (English Version - For Microsoft Store Audit)
+             ==================================================================== -->
+        <div id="section-en" class="card lang-section">
+            <div style="margin-bottom: 12px; font-size: 13px; color: var(--mdc-theme-accent); font-weight: 500; letter-spacing: 1px;">ENGLISH VERSION / MICROSOFT STORE REVIEW</div>
+            
+            <!-- MD2 Chips Group -->
+            <div class="chips-container">
+                <div class="chip"><span class="material-icons">offline_pin</span> Local Sandboxed Storage</div>
+                <div class="chip"><span class="material-icons">folder_special</span> Documents: Offline Cache & Backups</div>
+                <div class="chip"><span class="material-icons">router</span> IP Address: Direct P2P Connection</div>
+                <div class="chip"><span class="material-icons">block</span> Zero Ads &bull; Zero Telemetry</div>
+            </div>
+
+            <h2><span class="material-icons">info</span> 1. Introduction</h2>
+            <p>Welcome to <strong>Tsumiru UWP</strong> (Package Identity: <code>MikanNetwork.TsumiruUWP</code>, "the Application"), developed by <strong>Mikan Network</strong> ("we," "our," or "us"). Tsumiru is a free, open-source third-party Windows client designed for Suwayomi Server.</p>
+            <p>We respect your privacy and are committed to protecting your personal information. This Privacy Policy strictly complies with <strong>Microsoft Store Policy 10.5.1 (Personal Information - Privacy Policy)</strong> and transparently details how the Application accesses, uses, and safeguards device permissions and data.</p>
+
+            <h2><span class="material-icons">security</span> 2. Information We Access and Process (Audit Items Disclosure)</h2>
+            <p>To deliver core reading features and self-hosted server connectivity, the Application requests and utilizes the following permissions under Windows 10 / 11:</p>
+            
+            <h3><span class="material-icons" style="font-size: 18px; color: var(--mdc-theme-accent);">folder</span> Documents (Device Folders and Files)</h3>
+            <ul>
+                <li><strong>Offline Manga Cache & Chapter Downloads:</strong> When you read online or download manga for offline access, image files and cover thumbnails are stored strictly inside the Application's private, sandboxed app data directories (<code>ApplicationData.Current.LocalFolder</code> and <code>LocalCacheFolder</code>).</li>
+                <li><strong>Reading History & Bookmarks:</strong> Your reading progress, local library states, and display preferences are stored locally as structured JSON data within the sandboxed storage.</li>
+                <li><strong>Backup Export and Restore (FilePicker):</strong> Only when you explicitly initiate "Export Backup" or "Restore Backup", the Application invokes the Windows native FilePicker dialog to access the specific single backup file you choose.</li>
+            </ul>
+            <div class="callout-box">
+                <strong>Zero Invasion Guarantee:</strong> Tsumiru does <strong>NOT</strong> scan, read, index, or harvest files from your personal Documents, Photos, Downloads, or system directories. No stored files are ever transmitted to the developer or any third-party servers.
+            </div>
+
+            <h3><span class="material-icons" style="font-size: 18px; color: var(--mdc-theme-accent);">language</span> IP Address and Network Access</h3>
+            <ul>
+                <li><strong>Direct Connection to Your Suwayomi Server:</strong> Network communications occur exclusively between your device and the <strong>server endpoint explicitly configured by you</strong> (such as your home local network IP <code>http://192.168.x.x:4567</code> or your personal private domain). During standard TCP/IP handshakes, your device IP address is naturally transmitted as part of Internet networking protocols.</li>
+                <li><strong>Private Network Capability:</strong> The declared <code>privateNetworkClientServer</code> capability exists solely to allow Windows 10 Mobile and Desktop devices to connect to self-hosted Suwayomi instances across your home Wi-Fi local network.</li>
+                <li><strong>Direct Manga Source Fetching:</strong> Manga chapters and image assets stream directly between your device and the target manga source servers.</li>
+            </ul>
+            <div class="callout-box">
+                <strong>Zero Intermediary Relay:</strong> The publisher (Mikan Network) <strong>operates no proxy, relay, or traffic collection servers</strong>. Your network traffic never passes through us. We <strong>do NOT collect, log, track, or monitor your IP address</strong> or reading activity.
+            </div>
+
+            <h3><span class="material-icons" style="font-size: 18px; color: var(--mdc-theme-accent);">vpn_key</span> Server Authentication Credentials</h3>
+            <ul>
+                <li>If your Suwayomi Server requires authentication (HTTP Basic Auth or session tokens), credentials are encrypted and stored in your device's local secure storage (<code>PasswordVault</code>) and sent only in headers directly to your configured server.</li>
+            </ul>
+
+            <h2><span class="material-icons">block</span> 3. Zero Advertisements & Zero Third-Party Trackers</h2>
+            <p>Tsumiru is built with strict privacy and open-source principles:</p>
+            <ul>
+                <li><strong>No Advertisements:</strong> Contains no banner ads, interstitial promotions, or commercial advertising SDKs.</li>
+                <li><strong>No Analytics or Trackers:</strong> Does not integrate Google Analytics, Firebase, or any behavioral telemetry libraries.</li>
+                <li><strong>Local Diagnostic Logs:</strong> Crash logs are recorded strictly in local temporary storage for user troubleshooting and are never uploaded automatically.</li>
+            </ul>
+
+            <h2><span class="material-icons">manage_accounts</span> 4. User Controls and Data Erasure</h2>
+            <p>You retain full authority and ownership over all stored data:</p>
+            <ul>
+                <li><strong>Clear Cache:</strong> You can purge cached manga pages and temporary images at any time via App Settings.</li>
+                <li><strong>Disconnect Server:</strong> Logging out from the Connection page immediately wipes saved authentication tokens from local storage.</li>
+                <li><strong>Complete Uninstallation:</strong> Uninstalling the Application via Windows Settings automatically and permanently removes all sandboxed files, downloads, and preferences from your system.</li>
+            </ul>
+
+            <h2><span class="material-icons">verified</span> 5. Microsoft Store Policy Compliance</h2>
+            <p>This Privacy Policy serves as the official, binding disclosure satisfying <strong>Microsoft Store Policy 10.5.1</strong>. We do not sell, rent, trade, or transfer personal data to any external parties.</p>
+
+            <h2><span class="material-icons">contact_support</span> 6. Contact Us & Support</h2>
+            <p>If you have questions, inquiries, or feedback regarding this Privacy Policy, please contact us via:<br>
+            <strong>Publisher:</strong> Mikan Network<br>
+            <strong>Open Source Community:</strong> <a href="https://github.com/Suwayomi/Suwayomi-Server" target="_blank" rel="noopener">Suwayomi Community / GitHub Issues</a><br>
+            <strong>Support Email:</strong> <code>mikan.network.uwp@outlook.com</code></p>
+        </div>
+    </main>
+
+    <!-- Material Design 2 Footer -->
+    <footer>
+        <p>&copy; 2026 Mikan Network. All rights reserved.</p>
+        <p style="margin-top: 4px; opacity: 0.8;">Designed in accordance with <a href="https://m2.material.io/design" target="_blank" rel="noopener">Google Material Design 2</a>.</p>
+    </footer>
+
+    <script>
+        // 頁面載入時自動偵測瀏覽器語言並初始化
+        window.addEventListener('DOMContentLoaded', () => {
+            // 還原使用者主題偏好
+            const savedTheme = localStorage.getItem('tsumiru_theme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.body.setAttribute('data-theme', 'dark');
+                const themeIcon = document.getElementById('theme-icon');
+                if (themeIcon) themeIcon.textContent = 'light_mode';
+            }
+
+            // 語言偵測
+            const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            let initialLang = 'zh-TW'; // 預設繁體中文
+
+            if (browserLang.includes('zh-cn') || browserLang.includes('zh-sg') || browserLang.includes('zh-hans')) {
+                initialLang = 'zh-CN'; // 简体中文
+            } else if (browserLang.includes('en')) {
+                initialLang = 'en';    // 英文
+            } else if (browserLang.includes('zh')) {
+                initialLang = 'zh-TW'; // 其他中文系預設繁體
+            }
+
+            switchLanguage(initialLang);
+
+            // 綁定選單開關事件
+            const menuBtn = document.getElementById('lang-menu-btn');
+            const dropdown = document.getElementById('lang-dropdown');
+
+            menuBtn.addEventListener('click', (event) => {
+                event.stopPropagation();
+                dropdown.classList.toggle('show');
+            });
+
+            // 點擊其他區域關閉選單
+            window.addEventListener('click', () => {
+                if (dropdown.classList.contains('show')) {
+                    dropdown.classList.remove('show');
+                }
+            });
+        });
+
+        // 切換語系邏輯
+        function switchLanguage(lang) {
+            document.querySelectorAll('.lang-section').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            const targetSection = document.getElementById('section-' + lang);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // 更新選單勾選狀態
+            document.querySelectorAll('.dropdown-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            const activeItem = document.getElementById('item-' + lang);
+            if (activeItem) {
+                activeItem.classList.add('active');
+            }
+
+            const pageTitle = document.getElementById('page-title');
+            const pageSubtitle = document.getElementById('page-subtitle');
+
+            if (lang === 'zh-TW') {
+                pageTitle.textContent = 'Tsumiru UWP 隱私權政策';
+                pageSubtitle.textContent = 'Mikan Network • 最後更新日期：2026-10-19';
+                document.documentElement.lang = 'zh-Hant';
+            } else if (lang === 'zh-CN') {
+                pageTitle.textContent = 'Tsumiru UWP 隐私权政策';
+                pageSubtitle.textContent = 'Mikan Network • 最后更新日期：2026-10-19';
+                document.documentElement.lang = 'zh-CN';
+            } else if (lang === 'en') {
+                pageTitle.textContent = 'Tsumiru UWP Privacy Policy';
+                pageSubtitle.textContent = 'Mikan Network • Last Updated: October 19, 2026';
+                document.documentElement.lang = 'en';
+            }
+
+            const dropdown = document.getElementById('lang-dropdown');
+            if (dropdown) {
+                dropdown.classList.remove('show');
+            }
+        }
+
+        // 黑夜模式切換
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            
+            if (body.getAttribute('data-theme') === 'light') {
+                body.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = 'light_mode';
+                localStorage.setItem('tsumiru_theme', 'dark');
+            } else {
+                body.setAttribute('data-theme', 'light');
+                themeIcon.textContent = 'dark_mode';
+                localStorage.setItem('tsumiru_theme', 'light');
+            }
+        }
+    </script>
+
+</body>
+</html>
